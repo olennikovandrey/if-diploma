@@ -4,7 +4,16 @@
   "description": "https://github.com/olennikovandrey/if-diploma.git",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --open --config ./configs/webpack.config.js",
+    "build": "webpack --mode production",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "es": "eslint --ext .js,.jsx .",
+    "es:fix": "eslint --fix --ext .js,.jsx .",
+    "pret": "prettier --write src/**/*.js",
+    "style": "stylelint **/*.css",
+    "style:fix": "stylelint **/*.css --fix"
   },
   "repository": {
     "type": "git",
@@ -38,8 +47,11 @@
     "eslint-plugin-react": "^7.28.0",
     "file-loader": "^6.2.0",
     "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.6",
     "postcss-loader": "^6.2.1",
+    "react-router": "^6.0.0",
+    "react-router-dom": "^5.2.0",
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",

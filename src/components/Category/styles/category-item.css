@@ -1,0 +1,23 @@
+.category-item {
+  position: relative;
+  width: 390px;
+  height: 180px;
+  padding: 40px 20px;
+  background-color: #ede7f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 48px;
+  transition: 0.8s;
+}
+
+.category-item:hover {
+  background: #c09aff;
+}
+
+.category-icon {
+  width: 35%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
