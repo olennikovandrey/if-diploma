@@ -1,8 +1,10 @@
 .top-section {
+  position: relative;
   background: url("../../../assets/images/top-section/TSbg.png") no-repeat;
   background-color: rgba(175 179 182);
   background-position: top left;
   max-width: 2880px;
   height: 1674px;
   color: #fff;
+  margin: 0 auto;
 }

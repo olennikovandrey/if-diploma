@@ -4,8 +4,6 @@ header {
   height: 50px;
   margin: 40px 119px 0 120px;
   position: fixed;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -54,6 +52,7 @@ p.logo:hover {
 
 .header-part nav:hover {
   color: #000;
+  cursor: pointer;
 }
 
 .left nav:nth-child(1)::before {

@@ -10,8 +10,8 @@ export default function Footer() {
           <p className="updates-notice">Sign up for exclusive early sale access and tailored new arrivals.</p>
         </div>
         <form className="email-for-subscribe">
-          <input type="text" placeholder="Your email adress" />
-          <input type="button" value="JOIN"/>
+          <input type="text" placeholder="Your email adress" required/>
+          <button onClick={e => e.preventDefault()}>JOIN</button>
         </form>
       </div>
       <div className="footer-items">
