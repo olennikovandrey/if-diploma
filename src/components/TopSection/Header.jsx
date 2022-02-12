@@ -4,7 +4,6 @@ import "./styles/header.css";
 import CreateAccount from "../CreateAccount/CreateAccount";
 import Search from "../Search/Search";
 
-
 export default function Header() {
     const [isSignUpHidden, setSignUpIsHidden] = useState(true);
     const [isSearchHidden, setSearchIsHidden] = useState(true);

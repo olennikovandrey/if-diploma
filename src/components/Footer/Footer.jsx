@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import SubscribeForm from "./SubscribeForm";
 import "./footer.css"
 
 export default function Footer() {
+  const [isFormVisible, setIsFormVisible] = useState(true);
+
+  const formVisibleChanger = () => setIsFormVisible(() => !isFormVisible);
+
   return (
     <footer>
-      <div className="subscribe-container">
-        <div>
-          <h3>SIGN UP FOR UPDATES</h3>
-          <p className="updates-notice">Sign up for exclusive early sale access and tailored new arrivals.</p>
-        </div>
-        <form className="email-for-subscribe">
-          <input type="text" placeholder="Your email adress" required/>
-          <button onClick={e => e.preventDefault()}>JOIN</button>
-        </form>
-      </div>
+      <SubscribeForm isFormVisible={isFormVisible} formVisibleChanger={formVisibleChanger} />
       <div className="footer-items">
         <ul>
           <li className="footer-item-title">CUSTOMER SERVICE</li>
