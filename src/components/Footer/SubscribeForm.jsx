@@ -55,7 +55,7 @@ export default function SubscribeForm( props ) {
 
   return (
     props.isFormVisible ?
-      (
+    (
       <>
         <div className="subscribe-container">
           <h3>SIGN UP FOR UPDATES</h3>
@@ -73,7 +73,8 @@ export default function SubscribeForm( props ) {
           <div className="spinner"></div>
         </div>
       </>
-      ) : (
+    ) :
+    (
       <>
         <div className="subscribe-container">
           <h3>SIGN UP FOR UPDATES</h3>

@@ -22,7 +22,7 @@ export default function Header() {
         }
     };
 
-        const onEnterKeydown = (e) => {
+    const onEnterKeydown = (e) => {
         if (e.code === "Enter") {
             closeSearch()
         }
@@ -38,8 +38,21 @@ export default function Header() {
         return () => document.removeEventListener("keydown", onEnterKeydown), []
     });
 
+    window.addEventListener("scroll", (() => {
+        let header = document.getElementById("header");
+        if (scrollY > 1000) {
+            header.style.background = "#ede7f0";
+            header.style.color = "#000";
+            header.style.boxShadow = "0px 0px 20px #000";
+        } else {
+            header.style.background = "none";
+            header.style.color = "#fff";
+            header.style.boxShadow = "none";
+        }
+    }))
+
     return (
-        <header>
+        <header id="header">
             <div className="header-part left">
                 <nav>NEW ARRIVALS</nav>
                 <nav>SHOP</nav>

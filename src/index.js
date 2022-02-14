@@ -7,6 +7,7 @@ import TopSection from "./components/TopSection/TopSection";
 import Category from "./components/Category/Category";
 import Footer from "./components/Footer/Footer";
 import Shop from "./components/Shop/Shop";
+import Sale from "./components/Sale/Sale";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <React.StrictMode>
         <TopSection />
         <Category />
+        <Sale />
         <Shop />
         <Footer />
       </React.StrictMode>

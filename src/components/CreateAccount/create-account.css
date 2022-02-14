@@ -19,9 +19,9 @@
   transform: translate(50%, -50%);
   background: #fff;
   width: 998px;
-  height: 1125px;
+  height: auto;
   padding: 80px;
-  animation-name: slide-in;
+  animation-name: appear;
   animation-duration: 300ms;
 }
 
@@ -32,16 +32,6 @@
 
   to {
     opacity: 1;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    transform: translate(50%, -200%);
-  }
-
-  to {
-    transform: translate(50%, -50%);
   }
 }
 

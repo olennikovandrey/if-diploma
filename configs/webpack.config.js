@@ -25,11 +25,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
+        test: /\.html$/i,
         use: "html-loader",
       },
       {
-        test: /\.(js|jsx)$/, 
+        test: /\.(js|jsx)$/i, 
         loader: "babel-loader",
         exclude: /node_modules/,
         options: {
@@ -38,16 +38,22 @@ module.exports = {
         },
       },
       {
-        test: /\.(css)$/,
+        test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
-        use: [ 'style-loader', 'css-loader' ]  
+        use: [ 'style-loader', 'css-loader', 'sass-loader',
+        ],
+      },
+      {
+        test: /\.(css|scss)$/i,
+        exclude: /node_modules/,
+        use: [ 'style-loader', 'css-loader', 'postcss-loader', 'sass-loader' ]
       },
       {
         test: /\.(png|jpg|gif|ico|svg)$/i,
         type: 'asset/resource'
       },
       {
-        test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|eot|otf)(\?v=\d+\.\d+\.\d+)?$/i,
         type: 'asset/resource',
       }
     ]

@@ -10,7 +10,7 @@ import beauty from "../../assets/images/сategory/beauty.svg";
 
 export default function Category() {
   return (
-    <div className="category">
+    <section className="category">
       <h2>Shop by the <b>Category</b></h2>
       <div className="category-items">
         <nav><Item background={dress} value={"Dresses"} /></nav>
@@ -20,6 +20,6 @@ export default function Category() {
         <nav><Item background={tops} value={"Tops"} /></nav>
         <nav><Item background={beauty} value={"Beauty"} /></nav>
       </div>
-    </div>
+    </section>
   )
 }

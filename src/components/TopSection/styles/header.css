@@ -1,13 +1,16 @@
-header {
+#header {
   max-width: 2880px;
   width: 2640px;
-  height: 50px;
+  height: 70px;
   margin: 40px 119px 0 120px;
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  z-index: 1;
+  z-index: 2;
+  background: none;
+  color: #fff;
+  transition: all 0.6s linear;
 }
 
 .header-part {
@@ -30,7 +33,6 @@ p.logo {
   text-align: center;
   cursor: pointer;
   transition: all 0.6s linear;
-  color: #fff;
 }
 
 p.logo:hover {
@@ -48,11 +50,13 @@ p.logo:hover {
   text-decoration: none;
   transition: all 0.6s linear;
   z-index: 1;
+  filter: drop-shadow(10px 5px 10px #000);
 }
 
 .header-part nav:hover {
   color: #000;
   cursor: pointer;
+  filter: none;
 }
 
 .left nav:nth-child(1)::before {
