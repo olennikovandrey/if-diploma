@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import "./styles/header.css";
 
 import CreateAccount from "../CreateAccount/CreateAccount";
 import Search from "../Search/Search";
 
-export default function Header() {
+export default function Header(props) {
     const [isSignUpHidden, setSignUpIsHidden] = useState(true);
     const [isSearchHidden, setSearchIsHidden] = useState(true);
     const [signUpTitle, setSignUpTitle] = useState("SIGN UP");
@@ -46,13 +47,28 @@ export default function Header() {
             header.style.boxShadow = "0px 0px 20px #000";
         } else {
             header.style.background = "none";
-            header.style.color = "#fff";
+            header.style.color = props.color;
             header.style.boxShadow = "none";
         }
     }))
 
+    const HeaderWrapper = styled.header`
+        max-width: 2880px;
+        width: 2640px;
+        height: ${props.height};
+        margin: ${props.margin};
+        position: ${props.position};
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+        background: none;
+        color: ${props.color};
+        transition: all 0.6s linear;
+    `;
+
     return (
-        <header id="header">
+        <HeaderWrapper id="header">
             <div className="header-part left">
                 <nav>NEW ARRIVALS</nav>
                 <nav>SHOP</nav>
@@ -67,6 +83,6 @@ export default function Header() {
             </div>
             <CreateAccount hiddenModal={isSignUpHidden} closeModal={closeModal} signUpChanger={signUpChanger}/>
             <Search hiddenSearch={isSearchHidden} closeSearch={closeSearch} />
-        </header>
+        </HeaderWrapper>
     )
 }

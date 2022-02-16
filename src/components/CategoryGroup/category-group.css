@@ -2,34 +2,38 @@ section > h2 {
   margin-bottom: 166px;
 }
 
-.sale-wrapper {
+.category-group-wrapper {
   position: relative;
   max-width: 2882px;
   width: 2882px;
-  height: 1414px;
+  height: auto;
   margin: 0 auto;
-  padding: 180px 207px 99px;
+  padding: 0 207px 99px;
   background: #fff;
-}
-
-.sale-items-wrapper {
-  width: 100%;
-  height: 888px;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  box-sizing: border-box;
+  flex-direction: column;
 }
 
-.sale-item-wrapper {
+.category-group-items-wrapper {
+  width: 2492px;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-group-item-wrapper {
   position: relative;
   max-width: 599px;
   width: 599px;
   height: 888px;
-  margin-right: 24px;
+  margin: 0 24px 80px 0;
 }
 
-.sale-item-img {
+.category-group-item-img {
   max-width: 599px;
   width: 599px;
   height: 800px;
@@ -44,15 +48,15 @@ section > h2 {
   position: absolute;
   top: 15px;
   right: 15px;
-  content: url("../../../assets/images/sale/favorite.svg");
+  content: url("../../assets/images/sale/favorite.svg");
   cursor: pointer;
 }
 
 .add-to-favorite:hover {
-  content: url("../../../assets/images/sale/favorite-red.svg");
+  content: url("../../assets/images/sale/favorite-red.svg");
 }
 
-.add-to-bag {
+.add-to-bag-cat-item {
   position: absolute;
   top: 75%;
   left: 20%;
@@ -70,16 +74,28 @@ section > h2 {
   transition: all 0.3s linear;
 }
 
-.add-to-bag:hover,
-.sale-item-img:hover ~ .add-to-bag {
+.add-to-bag-cat-item:hover,
+.category-group-item-img:hover ~ .add-to-bag-cat-item {
   opacity: 1;
 }
 
-.sale-item-price {
+.category-group-item-price {
   width: 200px;
   height: 64px;
   font-weight: 700;
   font-size: 40px;
   line-height: 80px;
   color: #d7302d;
+}
+
+.show-more-btn {
+  width: 480px;
+  height: 100px;
+  border: 2px solid #000f08;
+  font-size: 40px;
+  line-height: 32px;
+  color: #000f08;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
 }

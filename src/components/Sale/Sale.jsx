@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 import "./styles/swiper.css";
@@ -8,43 +8,37 @@ import SaleItem from "./SaleItem";
 
 SwiperCore.use([Navigation]);
 
-export default class Sale extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      catalog: []
-    };
-  }
+export default function Sale() {
+  const [errorMsg, setError] = useState(null);
+  const [catalog, setCatalog] = useState([])
 
-  componentDidMount() {
+  useEffect(() => {
     fetch("https://modnikky-api.herokuapp.com/api/catalog")
     .then(res => res.json())
-    .then((result) => { this.setState ({ catalog: result }) },
-      (error) => { this.setState ({ error: error })}
+    .then((result) => setCatalog(result),
+      (error) => setError(error)
     );
-  }
+  }, [])
 
-  render () {
-    return (
-      <section className="sale-wrapper">
-        <h2>#MODNIKKY_<b>Sale</b></h2>
-        <div className="sale-items-wrapper">
-        <Swiper
-          navigation={true}
-          effect={"cube"}
-          slidesPerView={4}
-          loop={false}
-          mousewheel={true}
-        >
-          {this.state.catalog.map((item) => 
-          <SwiperSlide>
-            <SaleItem key={item.id} src={item.images[0]} price={item.price.value} name={item.name}/>
-          </SwiperSlide>
-          )}
-        </Swiper>
-        </div>
-      </section>
-    )
-  }
+  return (
+    <section className="sale-wrapper">
+      <h2>#MODNIKKY_<b>Sale</b></h2>
+      <div className="sale-items-wrapper">
+      <Swiper
+        navigation={true}
+        effect={"cube"}
+        slidesPerView={4}
+        loop={true}
+        mousewheel={true}
+      >
+        {catalog.map((item) => 
+        <SwiperSlide>
+          <SaleItem key={item.id} src={item.images[0]} price={item.price.value} name={item.name}/>
+        </SwiperSlide>
+        )}
+      </Swiper>
+      </div>
+    </section>
+  )
 }
+
