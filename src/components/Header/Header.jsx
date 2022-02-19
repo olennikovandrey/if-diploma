@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import "./styles/header.css";
+import "./header.css";
 
 import CreateAccount from "../CreateAccount/CreateAccount";
 import Search from "../Search/Search";
@@ -10,7 +10,14 @@ export default function Header(props) {
     const [isSearchHidden, setSearchIsHidden] = useState(true);
     const [signUpTitle, setSignUpTitle] = useState("SIGN UP");
 
-    const openModal = () => setSignUpIsHidden(false);
+    const signUpOut = () => {
+        if (isSignUpHidden === true && signUpTitle === "SIGN UP") {
+            setSignUpIsHidden(false);
+        } else {
+            setSignUpTitle("SIGN UP");
+        }
+    }
+
     const closeModal = () => setSignUpIsHidden(true);
     const openSearch = () => setSearchIsHidden(false);
     const closeSearch = () => setSearchIsHidden(true);
@@ -41,7 +48,7 @@ export default function Header(props) {
 
     window.addEventListener("scroll", (() => {
         let header = document.getElementById("header");
-        if (scrollY > 1000) {
+        if (scrollY > 900) {
             header.style.background = "#ede7f0";
             header.style.color = "#000";
             header.style.boxShadow = "0px 0px 20px #000";
@@ -58,6 +65,8 @@ export default function Header(props) {
         height: ${props.height};
         margin: ${props.margin};
         position: ${props.position};
+        left: 0;
+        right: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -77,7 +86,7 @@ export default function Header(props) {
             <p className="logo">MODNIKKY</p>
             <div className="header-part right">
                 <nav onClick={openSearch}>SEARCH</nav>
-                <nav onClick={openModal}>{signUpTitle}</nav>
+                <nav onClick={signUpOut}>{signUpTitle}</nav>
                 <nav>BAG (0)</nav>
                 <nav></nav>
             </div>

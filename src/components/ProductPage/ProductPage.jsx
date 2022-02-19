@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Footer from "../Footer/Footer";
-import Header from "../TopSection/Header";
+import Header from "../Header/Header";
 import wishlistSVG from "../../assets/images/sale/favorite.svg"
 
 export default function ProductPage() {
@@ -28,8 +28,6 @@ export default function ProductPage() {
     ]
   },
 ]
-
-  
 
   const ProductPageWrapper = styled.div `
     max-width: 2880px;

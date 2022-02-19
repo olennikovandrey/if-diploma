@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
+import catalogResponse from "../../services/responses"; //function for fetch
 import "./styles/swiper.css";
 import "./styles/sale.css";
 
@@ -9,15 +10,10 @@ import SaleItem from "./SaleItem";
 SwiperCore.use([Navigation]);
 
 export default function Sale() {
-  const [errorMsg, setError] = useState(null);
   const [catalog, setCatalog] = useState([])
 
   useEffect(() => {
-    fetch("https://modnikky-api.herokuapp.com/api/catalog")
-    .then(res => res.json())
-    .then((result) => setCatalog(result),
-      (error) => setError(error)
-    );
+    catalogResponse(setCatalog)
   }, [])
 
   return (

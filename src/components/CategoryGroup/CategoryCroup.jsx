@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./category-group.css";
+import catalogResponse from "../../services/responses";
 
 import CategoryGroupItem from "./CategoryGroupItem";
 
 export default function CategoryGroup(props) {
-  const [filteredCatalog, setfilteredCatalog] = useState([]);
+  const [filteredCatalog, setFilteredCatalog] = useState([]);
 
-  useEffect(async () => {
-    await fetch("https://modnikky-api.herokuapp.com/api/catalog")
-    .then(res => res.json())
-    .then((result) => setfilteredCatalog(result)
-    );
-  }, []);
+  useEffect(() => {
+    catalogResponse(setFilteredCatalog)
+  }, [])
 
   return (
     (filteredCatalog.filter((item) => item.type.toLowerCase().includes(`${props.filter}`))).length !== 0 ? 

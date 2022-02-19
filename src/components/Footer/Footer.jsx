@@ -5,11 +5,11 @@ import "./footer.css"
 export default function Footer() {
   const [isFormVisible, setIsFormVisible] = useState(true);
 
-  const formVisibleChanger = () => setIsFormVisible(() => !isFormVisible);
+  const subscriptionNoticeHider = () => setIsFormVisible(() => !isFormVisible);
 
   return (
     <footer>
-      <SubscribeForm isFormVisible={isFormVisible} formVisibleChanger={formVisibleChanger} />
+      <SubscribeForm isFormVisible={isFormVisible} formVisibleChanger={subscriptionNoticeHider} />
       <div className="footer-items">
         <ul>
           <li className="footer-item-title">CUSTOMER SERVICE</li>

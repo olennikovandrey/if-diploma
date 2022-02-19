@@ -48,6 +48,11 @@ h3 {
   color: #000f08;
 }
 
+h4 {
+  font-size: 24px;
+  line-height: 24px;
+}
+
 button {
   cursor: pointer;
 }

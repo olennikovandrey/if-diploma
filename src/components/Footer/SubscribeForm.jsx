@@ -5,32 +5,32 @@ export default function SubscribeForm( props ) {
   const [email, setEmail] = useState("");
   const [subscribeMsg, setSubscribeMsg] = useState("Sign up for exclusive early sale access and tailored new arrivals.");
 
-  const spinAdder = () => {
+  const showLoading = () => {
     document.getElementById("spin").classList.remove("hide")
   };
 
-  const spinRemover = () => {
+  const hideLoading = () => {
     document.getElementById("spin").classList.add("hide")
   };
 
-  const ifResponseOk = () => {
+  const handleSuccessResponse = () => {
     setTimeout((() => document.getElementById("subscribe-msg").style.display = "none"), 5000);
     props.formVisibleChanger();
     setSubscribeMsg("Thank you for subscribing to our newsletter!");
     document.getElementById("subscribe-msg").style.display = "block";
-    
+
   };
 
-  const ifResponseBad = () => {
+  const handleBadResponse = () => {
     setTimeout((() => document.getElementById("subscribe-msg").style.display = "none"), 5000);
-    spinRemover();
+    hideLoading();
     setSubscribeMsg("Please, enter correct email");
     document.getElementById("subscribe-msg").style.display = "block";
   };
 
-  const subscribe = async (e) => {
+  const subscribeToUpdate = async (e) => {
     e.preventDefault();
-    spinAdder();
+    showLoading();
     try {
       const response = await fetch("https://modnikky-api.herokuapp.com/api/subscription", {
         method: "POST",
@@ -44,9 +44,9 @@ export default function SubscribeForm( props ) {
       const result = response.json();
       console.log(result);
       if (response.status === 200) {
-        ifResponseOk()
+        handleSuccessResponse()
       } else {
-        ifResponseBad()
+        handleBadResponse()
       }
     } catch (error) {
       console.error("Something wrong with subscribe, try again:", error);
@@ -67,7 +67,7 @@ export default function SubscribeForm( props ) {
         </div>
         <form className="form-for-subscribe">
             <input type="text" placeholder="Your email adress" onChange={e => setEmail(e.target.value)} required pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$"/>
-            <button onClick={subscribe}>JOIN</button>
+            <button onClick={subscribeToUpdate}>JOIN</button>
         </form>
         <div id="spin" className="spin-wrapper hide">
           <div className="spinner"></div>

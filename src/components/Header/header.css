@@ -17,7 +17,7 @@ p.logo {
   align-items: center;
   text-align: center;
   cursor: pointer;
-  transition: all 0.6s linear;
+  transition: all 0.3s linear;
 }
 
 p.logo:hover {
@@ -33,7 +33,7 @@ p.logo:hover {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  transition: all 0.6s linear;
+  transition: all 0.3s linear;
   z-index: 1;
   filter: drop-shadow(10px 5px 10px #000);
 }
@@ -45,15 +45,15 @@ p.logo:hover {
 }
 
 .left nav:nth-child(1)::before {
-  background: url("../../../assets/images/header/4.png");
+  background: url("../../assets/images/header/4.png");
 }
 
 .left nav:nth-child(2)::before {
-  background: url("../../../assets/images/header/3.png");
+  background: url("../../assets/images/header/3.png");
 }
 
 .left nav:nth-child(3)::before {
-  background: url("../../../assets/images/header/9.png");
+  background: url("../../assets/images/header/9.png");
 }
 
 .left nav:nth-child(1)::before,
@@ -67,35 +67,35 @@ p.logo:hover {
   width: 150px;
   height: 150px;
   background-size: cover;
-  transition: all 0.6s linear;
+  transition: all 0.3s linear;
   opacity: 0;
 }
 
 .right nav:nth-child(1)::before {
   margin-right: 10px;
-  content: url("../../../assets/images/top-section/search.svg");
+  content: url("../../assets/images/top-section/search.svg");
 }
 
 .right nav:nth-child(4) {
-  content: url("../../../assets/images/top-section/wishlist-icon.svg");
+  content: url("../../assets/images/top-section/wishlist-icon.svg");
   width: 27px;
   height: 24px;
 }
 
 .right nav:nth-child(4):hover {
-  content: url("../../../assets/images/top-section/wishlist-icon-hover.svg");
+  content: url("../../assets/images/top-section/wishlist-icon-hover.svg");
 }
 
 .right nav:nth-child(2)::before {
-  background: url("../../../assets/images/header/5.png");
+  background: url("../../assets/images/header/5.png");
 }
 
 .right nav:nth-child(3)::before {
-  background: url("../../../assets/images/header/6.png");
+  background: url("../../assets/images/header/6.png");
 }
 
 .right nav:nth-child(1)::after {
-  background: url("../../../assets/images/header/2.png");
+  background: url("../../assets/images/header/2.png");
   position: absolute;
   content: "";
   top: -55px;

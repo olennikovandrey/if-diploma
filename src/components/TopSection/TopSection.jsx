@@ -1,14 +1,15 @@
 import React from "react";
-import "./styles/top-section.css";
-
-import Header from "./Header";
-import TopContent from "./TopContent";
+import "./top-section.css";
 
 export default function TopSection() {
     return (
         <section className="top-section">
-            <Header margin={"40px 119px 0 120px"} position={"fixed"} color={"#fff"} height={"70px"}/>
-            <TopContent />
+            <div className="top-content">
+                <h1>NEW COLLECTION</h1>
+                <p className="slogan"> Our easiest chuck-on-and-go staples come with a serious style heritage <br/> 
+                that’s liberating, sexy, comfy and supremely cool.</p>
+                <div className="new-arrivals">SHOP NEW ARRIVALS</div>
+            </div>
         </section>
     )
 }
