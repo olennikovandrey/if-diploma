@@ -10,6 +10,7 @@
   cursor: pointer;
   font-size: 48px;
   transition: 0.8s;
+  color: #000;
 }
 
 .category-item:hover {

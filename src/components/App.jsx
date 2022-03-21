@@ -1,16 +1,22 @@
 import React from "react";
-
-import Header from "./Header/Header";
-import AppWrapper from "./AppWrapper";
-import Footer from "./Footer/Footer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "../assets/styles/general.css";
+import "../assets/styles/fonts.css";
 import ProductPage from "./ProductPage/ProductPage";
+import Home from "../components/Home/Home";
+import Bag from "./Bag/Bag";
 
 export default function App() {
   return (
-    <>
-      <Header margin={"30px auto"} position={"fixed"} color={"#fff"} height={"70px"}/>
-      <AppWrapper />
-      <Footer />
-    </>
+    <Router>
+      <Route exact path={"/"}>
+        <Home />
+      </Route>
+
+      <Switch>
+        <Route path={"/:type/:id"} component={ProductPage} />
+        <Route path={"/bag"} component={Bag} />
+      </Switch>
+    </Router>
   );
-};
+}

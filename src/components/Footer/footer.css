@@ -17,13 +17,8 @@ ul {
   list-style-type: none;
 }
 
-a {
+li > a {
   color: #000;
-}
-
-a:visited {
-  color: #000;
-  text-decoration: none;
 }
 
 div h3 {
@@ -217,7 +212,9 @@ div h3 {
 }
 
 .footer-item {
+  text-decoration: none;
   margin-bottom: 40px;
+  color: #000;
 }
 
 .facebook::before {

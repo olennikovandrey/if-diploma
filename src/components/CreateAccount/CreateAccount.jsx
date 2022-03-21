@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./create-account.css";
 import authData from "../../constants/usersData";
 
@@ -20,106 +20,109 @@ export default function CreateAccount ( props ) {
   const blurHandler = (e) => {
     switch (e.target.name) {
       case "last-name":
-      setLastNameDirty(true)
-      break
+      setLastNameDirty(true);
+      break;
       case "first-name":
-      setFirstNameDirty(true)
-      break
+      setFirstNameDirty(true);
+      break;
       case "email":
-      setEmailDirty(true)
-      break
+      setEmailDirty(true);
+      break;
       case "password":
-      setPasswordDirty(true)
-      break
+      setPasswordDirty(true);
+      break;
     }
-  }
+  };
 
   const firstNameHandler = (e) => {
-    setFirstNameValue(e.target.value)
+    setFirstNameValue(e.target.value);
     if (!e.target.value) {
-      setFirstNameError("This input cannot be empty")
+      setFirstNameError("This input cannot be empty");
     } else {
-      setFirstNameError("")
+      setFirstNameError("");
     }
-  }
+  };
 
   const lastNameHandler = (e) => {
-    setLastNameValue(e.target.value)
+    setLastNameValue(e.target.value);
     if (!e.target.value) {
-      setLastNameError("This input cannot be empty")
+      setLastNameError("This input cannot be empty");
     } else {
-      setLastNameError("")
+      setLastNameError("");
     }
-  }
+  };
 
   const emailHandler = (e) => {
-    setEmailValue(e.target.value)
+    setEmailValue(e.target.value);
     const emailPattern = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (!emailPattern.test(String(e.target.value).toLowerCase())) {
-      setEmailError("Incorrect email")
+      setEmailError("Incorrect email");
     } else {
-      setEmailError("")
+      setEmailError("");
     }
-  }
+  };
 
   const passwordHandler = (e) => {
-    setPasswordValue(e.target.value)
+    setPasswordValue(e.target.value);
     if (e.target.value.length < 6) {
-      setPasswordError("Password should contain more then six symbols")
+      setPasswordError("Password should contain more then six symbols");
     } else if (!e.target.value) {
-      setPasswordError("Password cannot be empty")
+      setPasswordError("Password cannot be empty");
     } else {
-      setPasswordError("")
+      setPasswordError("");
     }
-  }
+  };
 
-  const goToLogin = () => setIsHaveAccount(true)
+  const goToLogin = () => setIsHaveAccount(true);
 
   const checkExistedUser = (e) => {
     e.preventDefault();
     let isEmailInAuthData = false;
     let isPasswordInAuthData = false;
     for ( let i = 0; i < authData.length; i ++ ) {
-      if (email.toLowerCase() === (authData[i].email.toLowerCase()) 
+      if (email.toLowerCase() === (authData[i].email.toLowerCase())
       && password.toLowerCase() === (authData[i].password.toLowerCase())) {
         isEmailInAuthData = true;
         isPasswordInAuthData = true;
-      } else if (email.toLowerCase() !== (authData[i].email.toLowerCase()) 
+      } else if (email.toLowerCase() !== (authData[i].email.toLowerCase())
       && password.toLowerCase() === (authData[i].password.toLowerCase()))  {
         isEmailInAuthData = false;
         isPasswordInAuthData = true;
-      } else if (email.toLowerCase() === (authData[i].email.toLowerCase()) 
+      } else if (email.toLowerCase() === (authData[i].email.toLowerCase())
       && password.toLowerCase() !== (authData[i].password.toLowerCase()))  {
         isEmailInAuthData = true;
         isPasswordInAuthData = false;
       }
     }
-    if (isEmailInAuthData && isPasswordInAuthData && firstName.length !== 0 && lastName.length !== 0 && email.length !== 0 && password.length !== 0) {
+    if (isEmailInAuthData && isPasswordInAuthData && (firstName.length !== 0 && lastName.length !== 0) && email.length !== 0 && password.length !== 0) {
       props.closeModal();
       props.signUpChanger();
     } else if (isEmailInAuthData && isPasswordInAuthData && firstName.length === 0 && lastName.length === 0 && email.length !== 0 && password.length !== 0) {
-      setFirstNameDirty(true)
-      setLastNameDirty(true)
+      setFirstNameDirty(true);
+      setLastNameDirty(true);
     } else if (firstName.length === 0 && lastName.length === 0 && email.length === 0 && password.length === 0) {
-      setFirstNameDirty(true)
-      setLastNameDirty(true)
-      setEmailDirty(true)
-      setPasswordDirty(true)
+      setFirstNameDirty(true);
+      setLastNameDirty(true);
+      setEmailDirty(true);
+      setPasswordDirty(true);
     } else if (isEmailInAuthData && !isPasswordInAuthData && firstName.length !== 0 && lastName.length !== 0 && email.length !== 0 && password.length !== 0) {
-      setEmailDirty(false)
-      setPasswordDirty(true)
-      setPasswordError("Wrong password")
+      setEmailDirty(false);
+      setPasswordDirty(true);
+      setPasswordError("Wrong password");
     } else if (!isEmailInAuthData && isPasswordInAuthData && firstName.length !== 0 && lastName.length !== 0 && email.length !== 0 && password.length !== 0) {
-      setEmailDirty(true)
-      setPasswordDirty(false)
-      setEmailError("Wrong email")
+      setEmailDirty(true);
+      setPasswordDirty(false);
+      setEmailError("Wrong email");
     } else if (!isEmailInAuthData && !isPasswordInAuthData && firstName.length !== 0 && lastName.length !== 0 && email.length !== 0 && password.length !== 0) {
-      setEmailDirty(true)
-      setPasswordDirty(true)
-      setPasswordNameError("Wrong password")
-      setEmailNameError("Wrong email")
+      setEmailDirty(true);
+      setPasswordDirty(true);
+      setPasswordNameError("Wrong password");
+      setEmailNameError("Wrong email");
+    } else if (isEmailInAuthData && isPasswordInAuthData && email.length !== 0 && password.length !== 0) {
+      props.closeModal();
+      props.signUpChanger();
     }
-  }
+  };
 
   return (
     !isHaveAccount ? (
@@ -137,7 +140,7 @@ export default function CreateAccount ( props ) {
             {(emailDirty && emailError) && <span className="input-error">{emailError}</span>}
             <input className="account-input" value={email} name="email" placeholder="Email" type="email" onChange={emailHandler} onBlur={e => blurHandler(e)} required/>
             {(passwordDirty && passwordError) && <span className="input-error">{passwordError}</span>}
-            <input className="account-input" value={password} name="password" placeholder="Password" type="password" onBlur={e => blurHandler(e)} onChange={passwordHandler} minLength="6" required/>
+            <input className="account-input" value={password} name="password" placeholder="Password" type="password" onChange={passwordHandler} onBlur={e => blurHandler(e)} minLength="6" required/>
             <input type="checkbox" className="checkbox" id="personalNews" name="news" value="yes"/>
             <label htmlFor="personalNews" className="label-for-checkbox">
               Let's get personal! We'll send you only the good stuff: <br/> Exclusive early access to Sale, new arrivals and promotions. No nasties.
@@ -170,5 +173,5 @@ export default function CreateAccount ( props ) {
         </div>
       </div>
     )
-  )
+  );
 }

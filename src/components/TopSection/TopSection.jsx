@@ -11,5 +11,5 @@ export default function TopSection() {
                 <div className="new-arrivals">SHOP NEW ARRIVALS</div>
             </div>
         </section>
-    )
+    );
 }

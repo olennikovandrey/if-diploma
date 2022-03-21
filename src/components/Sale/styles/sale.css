@@ -83,3 +83,47 @@ section > h2 {
   line-height: 80px;
   color: #d7302d;
 }
+
+.sale-spin-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.sale-spinner {
+  position: absolute;
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  border: 15px solid transparent;
+  border-top-color: #83004f;
+  top: 100px;
+  left: 47%;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.sale-spinner::before,
+.sale-spinner::after {
+  content: "";
+  position: absolute;
+  border: 15px solid transparent;
+  border-radius: 50%;
+}
+
+.sale-spinner::before {
+  border-top-color: #18609b;
+  top: -40px;
+  left: -40px;
+  right: -40px;
+  bottom: -40px;
+  animation: spin 3s linear infinite;
+}
+
+.sale-spinner::after {
+  border-top-color: #1dd300;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  animation: spin 4s linear infinite;
+}

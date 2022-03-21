@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SubscribeForm from "./SubscribeForm";
-import "./footer.css"
+import "./footer.css";
 
 export default function Footer() {
   const [isFormVisible, setIsFormVisible] = useState(true);
@@ -32,7 +32,7 @@ export default function Footer() {
           <li className="footer-item-title">FOLLOW US</li>
           <li className="footer-item facebook"><a href="https://www.facebook.com/">FACEBOOK</a></li>
           <li className="footer-item odnoklassniki"><a href="https://ok.ru/">ODNOKLASSNIKI</a></li>
-          <li className="footer-item instagram"><a href="https://www.instagram.com/">NSTAGRAM</a></li>
+          <li className="footer-item instagram"><a href="https://www.instagram.com/">INSTAGRAM</a></li>
         </ul>
         <ul>
           <li className="footer-item-title">CONTACT US</li>
@@ -42,5 +42,5 @@ export default function Footer() {
         </ul>
       </div>
     </footer>
-  )
+  );
 }

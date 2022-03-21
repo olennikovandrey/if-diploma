@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import "./footer.css"
+import "./footer.css";
 
 export default function SubscribeForm( props ) {
   const [email, setEmail] = useState("");
   const [subscribeMsg, setSubscribeMsg] = useState("Sign up for exclusive early sale access and tailored new arrivals.");
 
   const showLoading = () => {
-    document.getElementById("spin").classList.remove("hide")
+    document.getElementById("spin").classList.remove("hide");
   };
 
   const hideLoading = () => {
-    document.getElementById("spin").classList.add("hide")
+    document.getElementById("spin").classList.add("hide");
   };
 
   const handleSuccessResponse = () => {
@@ -44,9 +44,9 @@ export default function SubscribeForm( props ) {
       const result = response.json();
       console.log(result);
       if (response.status === 200) {
-        handleSuccessResponse()
+        handleSuccessResponse();
       } else {
-        handleBadResponse()
+        handleBadResponse();
       }
     } catch (error) {
       console.error("Something wrong with subscribe, try again:", error);
@@ -87,4 +87,4 @@ export default function SubscribeForm( props ) {
       </>
     )
   );
-};
+}

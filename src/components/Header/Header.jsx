@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { connect, useSelector } from "react-redux";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import "./header.css";
 
 import CreateAccount from "../CreateAccount/CreateAccount";
 import Search from "../Search/Search";
 
-export default function Header(props) {
+function Header(props) {
     const [isSignUpHidden, setSignUpIsHidden] = useState(true);
     const [isSearchHidden, setSearchIsHidden] = useState(true);
     const [signUpTitle, setSignUpTitle] = useState("SIGN UP");
+    const items = useSelector(state => state.addedItemsToCart.length)
 
     const signUpOut = () => {
         if (isSignUpHidden === true && signUpTitle === "SIGN UP") {
@@ -16,34 +19,22 @@ export default function Header(props) {
         } else {
             setSignUpTitle("SIGN UP");
         }
-    }
+    };
 
     const closeModal = () => setSignUpIsHidden(true);
     const openSearch = () => setSearchIsHidden(false);
     const closeSearch = () => setSearchIsHidden(true);
     const signUpChanger = () => setSignUpTitle("SIGN OUT");
-
     const onEscapeKeydown = (e) => {
         if (e.code === "Escape") {
             closeModal(),
-            closeSearch()
-        }
-    };
-
-    const onEnterKeydown = (e) => {
-        if (e.code === "Enter") {
-            closeSearch()
+            closeSearch();
         }
     };
 
     useEffect(() => {
         document.addEventListener("keydown", onEscapeKeydown);
-        return () => document.removeEventListener("keydown", onEscapeKeydown), []
-    });
-
-    useEffect(() => {
-        document.addEventListener("keydown", onEnterKeydown);
-        return () => document.removeEventListener("keydown", onEnterKeydown), []
+        return () => document.removeEventListener("keydown", onEscapeKeydown), [];
     });
 
     window.addEventListener("scroll", (() => {
@@ -57,7 +48,7 @@ export default function Header(props) {
             header.style.color = props.color;
             header.style.boxShadow = "none";
         }
-    }))
+    }));
 
     const HeaderWrapper = styled.header`
         max-width: 2880px;
@@ -83,15 +74,23 @@ export default function Header(props) {
                 <nav>SHOP</nav>
                 <nav>COLLECTIONS</nav>
             </div>
-            <p className="logo">MODNIKKY</p>
+            <Link to={"/"}><p className="logo">MODNIKKY</p></Link>
             <div className="header-part right">
-                <nav onClick={openSearch}>SEARCH</nav>
+                <nav className="search" onClick={openSearch}>SEARCH</nav>
                 <nav onClick={signUpOut}>{signUpTitle}</nav>
-                <nav>BAG (0)</nav>
+                <Link to={"/bag"}><nav className="bag">BAG ({items})</nav></Link>
                 <nav></nav>
             </div>
             <CreateAccount hiddenModal={isSignUpHidden} closeModal={closeModal} signUpChanger={signUpChanger}/>
             <Search hiddenSearch={isSearchHidden} closeSearch={closeSearch} />
         </HeaderWrapper>
-    )
+    );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        addedItemsToCart: state.addedItemsToCart
+    }
+}
+
+export default connect(mapStateToProps)(Header)

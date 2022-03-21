@@ -19,5 +19,5 @@ export default function Shop() {
       </div>
       <h3>#MODNIKKY</h3>
     </section>
-  )
+  );
 }

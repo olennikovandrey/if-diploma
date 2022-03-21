@@ -35,6 +35,6 @@ const authData = [
     email: "y@mail.ru",
     password: "yyyyyy"
   },
-]
+];
 
-export default authData
+export default authData;

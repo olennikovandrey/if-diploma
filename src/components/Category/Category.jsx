@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./styles/category.css";
 import Item from "./Item";
 import CategoryGroup from "../CategoryGroup/CategoryCroup";
+
 import dress from "../../assets/images/сategory/dress.svg";
 import tees from "../../assets/images/сategory/tees.svg";
 import swimwear from "../../assets/images/сategory/swimwear.svg";
@@ -34,5 +35,5 @@ export default function Category() {
         <Route path="/beauty"><CategoryGroup title={"Beauty"} filter={"beauty"} /></Route>
       </Switch>
     </Router>
-  )
+  );
 }

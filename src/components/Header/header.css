@@ -9,24 +9,25 @@
   width: 30%;
 }
 
-p.logo {
+.logo {
   width: 40%;
-  font-family: "Helvetica Neue LT Std", sans-serif;
+  font-weight: bold;
   font-size: 70px;
   line-height: 70px;
   align-items: center;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s linear;
+  text-decoration: none;
 }
 
-p.logo:hover {
+.logo:hover {
   color: #000;
 }
 
 .header-part nav {
   position: relative;
-  width: 100%;
+  width: auto;
   height: 100%;
   margin: 10px 0;
   display: flex;
@@ -50,20 +51,10 @@ p.logo:hover {
 
 .left nav:nth-child(2)::before {
   background: url("../../assets/images/header/3.png");
-}
-
-.left nav:nth-child(3)::before {
-  background: url("../../assets/images/header/9.png");
-}
-
-.left nav:nth-child(1)::before,
-.left nav:nth-child(2)::before,
-.left nav:nth-child(3)::before,
-.right nav:nth-child(2)::before {
   content: "";
   position: absolute;
   top: -65px;
-  left: 60px;
+  left: -40px;
   width: 150px;
   height: 150px;
   background-size: cover;
@@ -71,7 +62,25 @@ p.logo:hover {
   opacity: 0;
 }
 
-.right nav:nth-child(1)::before {
+.left nav:nth-child(3)::before {
+  background: url("../../assets/images/header/9.png");
+}
+
+.left nav:nth-child(1)::before,
+.left nav:nth-child(3)::before,
+.right nav:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: -65px;
+  left: 5px;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  transition: all 0.3s linear;
+  opacity: 0;
+}
+
+nav.search::before {
   margin-right: 10px;
   content: url("../../assets/images/top-section/search.svg");
 }
@@ -88,18 +97,22 @@ p.logo:hover {
 
 .right nav:nth-child(2)::before {
   background: url("../../assets/images/header/5.png");
+  top: -65px;
+  left: -55px;
 }
 
-.right nav:nth-child(3)::before {
+nav.bag::before {
   background: url("../../assets/images/header/6.png");
+  top: -65px;
+  left: -55px;
 }
 
-.right nav:nth-child(1)::after {
+nav.search::after {
   background: url("../../assets/images/header/2.png");
   position: absolute;
   content: "";
   top: -55px;
-  left: 60px;
+  left: 0;
   width: 150px;
   height: 150px;
   opacity: 0;
@@ -108,11 +121,9 @@ p.logo:hover {
 }
 
 .right nav:nth-child(2)::before,
-.right nav:nth-child(3)::before {
+nav.bag::before {
   position: absolute;
   content: "";
-  top: -65px;
-  left: 15px;
   width: 200px;
   height: 150px;
   opacity: 0;
@@ -124,8 +135,8 @@ p.logo:hover {
 .left nav:nth-child(2):hover::before,
 .left nav:nth-child(3):hover::before,
 .right nav:nth-child(2):hover::before,
-.right nav:nth-child(1):hover::after,
-.right nav:nth-child(3):hover::before {
+nav.search:hover::after,
+nav.bag:hover::before {
   opacity: 0.4;
   filter: saturate(200%);
 }

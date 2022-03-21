@@ -7,5 +7,5 @@ export default function Item(props) {
       <div className="category-icon" style={{ backgroundImage: `url(${props.background})` }}></div>
       <p>{props.value}</p>
     </div>
-  )
+  );
 }

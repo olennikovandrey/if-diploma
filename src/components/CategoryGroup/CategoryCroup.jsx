@@ -5,23 +5,41 @@ import catalogResponse from "../../services/responses";
 import CategoryGroupItem from "./CategoryGroupItem";
 
 export default function CategoryGroup(props) {
-  const [filteredCatalog, setFilteredCatalog] = useState([]);
+  const [catalog, setCatalog] = useState([]);
+
+  const showLoading = () => {
+    document.getElementById("spin").classList.remove("hide");
+  };
+
+  const hideLoading = () => {
+    document.getElementById("spin").classList.add("hide");
+  };
 
   useEffect(() => {
-    catalogResponse(setFilteredCatalog)
-  }, [])
+    catalogResponse(setCatalog, showLoading, hideLoading);
+  }, []);
 
   return (
-    (filteredCatalog.filter((item) => item.type.toLowerCase().includes(`${props.filter}`))).length !== 0 ? 
+    (catalog.filter((item) => item.type.toLowerCase().includes(`${props.filter}`))).length !== 0 ?
     (
       <section className="category-group-wrapper">
         <h2><b>{props.title}</b></h2>
         <div className="category-group-items-wrapper">
-        {filteredCatalog
+        {catalog
             .filter((item) => item.type.toLowerCase().includes(`${props.filter}`))
-            .map((item) => 
-            <CategoryGroupItem key={item.id} src={item.images[1]} price={item.price.value} name={item.name}/>
+            .map((item) =>
+            <CategoryGroupItem
+              key={item.id}
+              src={item.images[1]}
+              price={item.price.value}
+              name={item.name}
+              id={item.id}
+              type={item.type}
+            />
           )}
+        </div>
+        <div id="spin" className="category-group-spin-wrapper hide">
+          <div className="category-group-spinner"></div>
         </div>
       </section>
     ) : (
@@ -30,5 +48,5 @@ export default function CategoryGroup(props) {
         <h2>No products found</h2>
       </section>
     )
-  )
+  );
 }

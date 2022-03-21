@@ -99,3 +99,57 @@ section > h2 {
   margin: 0 auto;
   display: block;
 }
+
+.category-group-spin-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.category-group-spinner {
+  position: absolute;
+  margin: 0 auto;
+  height: 90px;
+  width: 90px;
+  border: 5px solid transparent;
+  border-top-color: #83004f;
+  top: -2000px;
+  left: 48%;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  position: absolute;
+  border: 5px solid transparent;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  border-top-color: #18609b;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  animation: spin 3s linear infinite;
+}
+
+.spinner::after {
+  border-top-color: #1dd300;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,12 @@
-async function catalogResponse(setStateFunction) {
+async function catalogResponse(setStateFunction, setLoading) {
+  try {
   const URL = "https://modnikky-api.herokuapp.com/api/catalog";
-  return await fetch(URL).then((res) => res.json()).then((result) => setStateFunction(result))
+  await fetch(URL).then((res) => res.json()).then((result) => setStateFunction(result));
+  setLoading(false);
+  } catch {
+    (error) => console.log(error);
+    setLoading(true);
+  }
 }
 
-export default catalogResponse
+export default catalogResponse;

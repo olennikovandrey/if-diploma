@@ -1,0 +1,205 @@
+@media (max-width: 2880px) {
+   .bag_wrapper {
+       user-select: none;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       margin: 25px 455px;
+   }
+
+    .bag_header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #D8D8D8;
+    }
+
+    .bag_title {
+        font: 20px Roboto;
+        padding-right: 20px;
+        margin: 0;
+    }
+
+    .bag_subtitle {
+        font: 12px Roboto;
+        color: #8C8C8C;
+        margin: 0;
+    }
+
+    .bag_content_container {
+         padding-top: 30px;
+         display: flex;
+         padding-bottom: 85px;
+         border-bottom: 1px solid #D8D8D8;
+    }
+
+    .bag_image_container {
+        max-width: 160px;
+        max-height: 230px;
+    }
+
+    .bag_image {
+        width: 100%;
+        height: 100%;
+        max-width: 160px;
+        max-height: 230px;
+        object-fit: contain;
+    }
+
+    .bag_description_container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    .bag_description {
+        font: 500 16px Roboto;
+        line-height: 24px;
+        max-width: 290px;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    .bag_price, .bag_color {
+        font: 12px Roboto;
+        margin: 0;
+    }
+
+    .bag_color_container,  .bag_size_container {
+        display: flex;
+        align-items: center;
+        padding-top: 30px;
+    }
+
+    .bag_dropdown_svg {
+        width: 11px;
+        height: 6px;
+        margin-left: 7px;
+    }
+
+    .bag_size_container {
+        padding-top: 20px;
+    }
+
+    .bag_remove_container {
+        display: flex;
+        align-items: baseline;
+        position: absolute;
+        bottom: -25%;
+        left: 85%;
+        cursor: pointer;
+    }
+
+    .bag_remove_container:hover {
+       transition: all 0.25s ease-out;
+        color: #553c9f;
+    }
+    .bag_remove_svg {
+        width: 12px;
+        height: 12px;
+        padding-right: 7px;
+    }
+
+    .bag_remove {
+        margin: 0;
+    }
+
+    .bag_message {
+        font: 500 18px Roboto;;
+        color: #aaa1c1;
+        padding: 80px 0;
+    }
+
+    .bag_add_button {
+        font: 400 14px Roboto;
+        color: #FFFFFF;
+        border: none;
+        outline: none;
+        background-color: #aaa1c1;
+        cursor: pointer;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+
+    .bag_inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bag_currency {
+        font: 500 20px Roboto;
+        line-height: 24px;
+        margin: 40px 0 24px;
+    }
+
+    .bag_button {
+        font: 400 16px Roboto;
+        color: #FFFFFF;
+        height: 50px;
+        width: 240px;
+        border: none;
+        outline: none;
+        background-color: #000000;
+        cursor: pointer;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .bag_button:hover {
+        background-color: #aaa1c1;
+        transition: all 0.25s ease-out;
+    }
+
+    .bag_visa {
+        display: flex;
+    }
+
+    .favorites_bag_visa {
+        padding-top: 15px;
+    }
+
+    .bag_mastercard_svg {
+        width: 40px;
+        height: 24px;
+        padding-right: 5px;
+    }
+
+    .bag_visa_svg {
+        width: 40px;
+        height: 24px;
+    }
+}
+
+@media only screen and (max-width: 1390px) {
+    .bag_wrapper {
+        margin: 25px 25%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .bag_wrapper {
+        margin: 25px 10px;
+    }
+
+    .bag_remove_container {
+        left: 70%;
+    }
+
+    .bag_currency {
+        font: 500 16px Roboto;
+        line-height: 24px;
+        margin: 35px 0 24px;
+    }
+
+    .bag_button {
+        font: 400 14px Roboto;
+        height: 40px;
+        width: 220px;
+    }
+    .bag_message {
+        font: 500 16px Roboto;
+    }
+}
